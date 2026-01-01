@@ -30,7 +30,37 @@ def view_tasks():
 
 
 def mark_task_complete():
-    pass
+    if not tasks:
+        print("No tasks available.")
+        return
+
+    view_tasks()
+
+    try:
+        task_number = int(input("Enter task number to mark as completed: "))
+
+        if task_number < 1 or task_number > len(tasks):
+            print("Invalid task number.")
+            return
+
+        tasks[task_number - 1]["completed"] = True
+        print("Task marked as completed.")
+    except ValueError:
+        print("Please enter a valid number.")
+
+    view_tasks()
+
+    try:
+        task_number = int(input("Enter task number to mark as completed: "))
+
+        if task_number < 1 or task_number > len(tasks):
+            print("Invalid task number.")
+            return
+
+        tasks[task_number - 1]["completed"] = True
+        print("Task marked as completed.")
+    except ValueError:
+        print("Please enter a valid number.")
 
 
 def delete_task():
