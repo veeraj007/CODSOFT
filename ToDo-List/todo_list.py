@@ -5,7 +5,20 @@ tasks = []
 
 
 def add_task():
-    pass
+
+    title = input("Enter task description: ").strip()
+
+    if title == "":
+        print("Task description cannot be empty.")
+        return
+
+    task = {
+        "title": title,
+        "completed": False
+    }
+
+    tasks.append(task)
+    print("Task added successfully.")
 
 
 def view_tasks():
