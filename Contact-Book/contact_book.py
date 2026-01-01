@@ -87,8 +87,31 @@ def update_contact():
     print("Contact not found.")
     
 def delete_contact():
+    if not contacts:
+        print("No contacts available to delete.")
+        return
+
+    phone = input("Enter phone number of the contact to delete: ").strip()
+
+    for contact in contacts:
+        if contact["phone"] == phone:
+            print("\n--- Contact Found ---")
+            print(f"Name   : {contact['name']}")
+            print(f"Phone  : {contact['phone']}")
+            print(f"Email  : {contact['email']}")
+            print(f"Address: {contact['address']}")
+
+            confirm = input("Are you sure you want to delete this contact? (y/n): ").strip().lower()
+
+            if confirm == "y":
+                contacts.remove(contact)
+                print("Contact deleted successfully.")
+            else:
+                print("Delete operation cancelled.")
+            return
+
+    print("Contact not found.")
     
-    pass
 def main_menu():
     while True:
         print("\n--- Contact Book ---")
