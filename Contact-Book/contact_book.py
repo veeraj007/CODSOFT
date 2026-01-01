@@ -1,7 +1,24 @@
 contacts = []  
 def add_contact():
+    name = input("Enter name: ").strip()
+    phone = input("Enter phone number: ").strip()
+    email = input("Enter email: ").strip()
+    address = input("Enter address: ").strip()
+
+    if name == "" or phone == "":
+        print("Name and phone number are required.")
+        return
+
+    contact = {
+        "name": name,
+        "phone": phone,
+        "email": email,
+        "address": address
+    }
+
+    contacts.append(contact)
+    print("Contact added successfully.")
     
-    pass
 def view_contacts():
     
     pass
