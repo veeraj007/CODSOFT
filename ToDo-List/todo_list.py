@@ -64,7 +64,23 @@ def mark_task_complete():
 
 
 def delete_task():
-    pass
+    if not tasks:
+        print("No tasks available.")
+        return
+
+    view_tasks()
+
+    try:
+        task_number = int(input("Enter task number to delete: "))
+
+        if task_number < 1 or task_number > len(tasks):
+            print("Invalid task number.")
+            return
+
+        removed_task = tasks.pop(task_number - 1)
+        print(f"Task '{removed_task['title']}' deleted successfully.")
+    except ValueError:
+        print("Please enter a valid number.")
 
 
 def main_menu():
