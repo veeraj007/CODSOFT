@@ -54,8 +54,38 @@ def search_contact():
         print("Contact not found.")
     
 def update_contact():
+    if not contacts:
+        print("No contacts available to update.")
+        return
+
+    phone = input("Enter phone number of the contact to update: ").strip()
+
+    for contact in contacts:
+        if contact["phone"] == phone:
+            print("\n--- Current Details ---")
+            print(f"Name   : {contact['name']}")
+            print(f"Phone  : {contact['phone']}")
+            print(f"Email  : {contact['email']}")
+            print(f"Address: {contact['address']}")
+
+            print("\nEnter new details (press Enter to keep current value)")
+
+            new_name = input("New name: ").strip()
+            new_email = input("New email: ").strip()
+            new_address = input("New address: ").strip()
+
+            if new_name:
+                contact["name"] = new_name
+            if new_email:
+                contact["email"] = new_email
+            if new_address:
+                contact["address"] = new_address
+
+            print("Contact updated successfully.")
+            return
+
+    print("Contact not found.")
     
-    pass
 def delete_contact():
     
     pass
