@@ -1,6 +1,3 @@
-# To-Do List Application
-# Task 1 – CODSOFT Python Internship
-
 tasks = []
 
 
@@ -22,7 +19,14 @@ def add_task():
 
 
 def view_tasks():
-    pass
+    if not tasks:
+        print("No tasks available.")
+        return
+
+    print("\n--- Your Tasks ---")
+    for index, task in enumerate(tasks, start=1):
+        status = "Completed" if task["completed"] else "Pending"
+        print(f"{index}. {task['title']} [{status}]")
 
 
 def mark_task_complete():
