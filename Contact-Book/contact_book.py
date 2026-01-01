@@ -20,8 +20,18 @@ def add_contact():
     print("Contact added successfully.")
     
 def view_contacts():
-    
-    pass
+    if not contacts:
+        print("No contacts available.")
+        return
+
+    print("\n--- Saved Contacts ---")
+    for index, contact in enumerate(contacts, start=1):
+        print(f"\nContact {index}")
+        print(f"Name   : {contact['name']}")
+        print(f"Phone  : {contact['phone']}")
+        print(f"Email  : {contact['email']}")
+        print(f"Address: {contact['address']}")
+        
 def search_contact():
 
     pass
@@ -59,5 +69,5 @@ def main_menu():
         else:
             print("Invalid choice. Please try again.")
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main_menu()
