@@ -31,10 +31,28 @@ def view_contacts():
         print(f"Phone  : {contact['phone']}")
         print(f"Email  : {contact['email']}")
         print(f"Address: {contact['address']}")
-        
-def search_contact():
 
-    pass
+def search_contact():
+    if not contacts:
+        print("No contacts available to search.")
+        return
+
+    search_term = input("Enter name or phone number to search: ").strip().lower()
+
+    found = False
+    for contact in contacts:
+        if search_term == contact["phone"] or search_term in contact["name"].lower():
+            print("\n--- Contact Found ---")
+            print(f"Name   : {contact['name']}")
+            print(f"Phone  : {contact['phone']}")
+            print(f"Email  : {contact['email']}")
+            print(f"Address: {contact['address']}")
+            found = True
+            break
+
+    if not found:
+        print("Contact not found.")
+    
 def update_contact():
     
     pass
